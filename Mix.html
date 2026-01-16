@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konfigurátor</title>
+
+<style>
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+h1 { text-align: center; margin-top: 20px; color: #0056b3; }
+
+/* Hlavní taby */
+.tabs { text-align: center; margin: 20px 0; }
+.tabs button {
+    padding: 12px 25px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.tabs button.active { background-color: #0056b3; }
+
+/* Řádky čísel uvnitř tab-content */
+.sloupce-container { text-align: center; font-size: 24px; margin-bottom: 20px; }
+.sloupce { margin-top: 15px; }
+
+
+/* Text pro pozice */
+.positions-header {
+    
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    /* min-width: 130px; */
+}
+
+.positions-header div {
+    /* width: 133px;
+    padding: 6px 0;
+    text-align: center;
+    font-weight: bold;
+    background: #e9ecef;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    font-size: 14px; */
+
+    /* min-width: 125px; */
+     width: 125px; /* STEJNÁ ŠÍŘKA JAKO TLAČÍTKA */
+    padding: 4px;
+    border-radius: 4px;
+    text-align: center;
+    border: 1px solid #ff0000;
+    background: #e5ff00;
+    color: #000000;
+    cursor: pointer;
+    font-size: 14px;
+    
+
+}
+
+
+
+
+
+/* Obsah tabů */
+.tab-content { display: none; padding: 20px; background:#fff; border-radius:10px; margin-top:20px; }
+.tab-content.active { display: block; }
+
+/* Podtaby */
+.sub-tabs { text-align: left; margin-top: 20px; }
+.sub-tabs button {
+    padding: 8px 16px;
+    cursor: pointer;
+    background-color: #28a745;
+    color:white;
+    border:none;
+    border-radius:10px;
+    margin-right:10px;
+    margin-bottom:5px;
+}
+.sub-tabs button.active { background-color: #218838; }
+
+/* Plátno pro obrázky */
+.image-container {
+    position: absolute;
+    width: 1900px;
+    top: 490px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
+    z-index: -1;
+}
+.image-container img {
+    position: absolute;
+    top:0;
+    left:0;
+    width:100%;
+    object-fit: cover;
+    opacity:0;
+    transition: opacity 0.3s ease;
+}
+.image-container img#Ram { opacity:1; z-index:1; }
+.image-container img.active { opacity:1; z-index:2; }
+
+/* Flex pro tlačítka */
+.image-buttons-row {
+    display: flex;
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 15px;
+}
+/* Tady nastavím jak vypadají tlačítka a text v nich */
+.image-buttons-row button {
+    /* min-width: 135px; */
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #007bff;
+    background: #007bff;
+    color: #ffffff;
+    cursor: pointer;
+    font-size: 14px;
+}
+.image-buttons-row button.active { background: #0056b3; }
+
+.sub-tab-content { display: none; margin-top:10px; }
+.sub-tab-content.active { display: block; }
+
+/* TLAČÍTKO PDF */
+#printPdf {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    padding: 15px 25px;
+    font-size: 16px;
+    border-radius: 12px;
+    border: none;
+    background-color: #ff5722;
+    color: white;
+    cursor: pointer;
+    z-index: 99999;
+}
+#printPdf:hover { background-color: #e64a19; }
+
+/* Skrýt tlačítko při tisku a nastavení landscape */
+@media print {
+    #printPdf { display: none; }
+    @page { size: landscape; margin: 10mm; }
+    body { zoom: 90%; }
+}
+</style>
+</head>
+
+<body>
+
+<button id="printPdf">Uložit jako PDF</button>
+
+<h1>Konfigurátor - 1000 H60/80 </h1>
+
+<!-- Plátno s obrázky, tady se vše musí vypsat a dole pak zavolat -->
+<div class="image-container">
+    <img id="Ram" src="Ram-Z.PNG" alt="Zakladni ram">
+    <!-- <img id="image1" src="Ram.png" alt="Obrázek 1"> -->
+     <img id="skluzavka" src="skluzavka.png" alt="Obrázek 1">
+    <img id="KonicitaH1" src="KonicitaH1.PNG" alt="Obrázek 2">
+    <img id="image3" src="upinac3.PNG" alt="Obrázek 3">
+    <img id="image4" src="upinac4.PNG" alt="Obrázek 4">
+    <img id="image5" src="upinac5.PNG" alt="Obrázek 5">
+    <img id="ctr" src="CTR800.png" alt="CTR800" style="opacity:0; position:absolute; top:0; left:0; width:100%; object-fit:cover;">
+</div>
+
+<!-- Hlavní taby -->
+<div class="tabs">
+    <button class="tab-button active" data-target="tab1-content">CTR 1000 H40</button>
+    <button class="tab-button" data-target="tab2-content">Další pila</button>
+    <button class="tab-button" data-target="tab3-content">Další pila</button>
+</div>
+
+<!-- Tab 1 -->
+<div id="tab1-content" class="tab-content active">
+    <!-- pole s čísly pro tento tab -->
+    <div class="sloupce-container">
+        <div id="sloupce-tab1" class="sloupce">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</div>
+    </div>
+
+<!-- Tab 2 -->
+<div id="tab2-content" class="tab-content active">
+    <!-- pole s čísly pro tento tab -->
+    <!-- <div class="sloupce-container">
+        <div id="sloupce-tab2" class="sloupce">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</div>
+    </div> -->
+ <!-- počet podtabů a jejich názvy -->
+    <div class="sub-tabs">
+        <button class="sub-tab-button active" data-target="subtab1-content">Pozice 1-10</button>
+        <button class="sub-tab-button" data-target="subtab2-content">Pozice 11-20</button>
+    </div>
+  
+    
+
+
+
+
+
+<!-- Tady se určí počet sloupců a řádků a zároveň hodnota zobrazená pro kalkulace -->
+    <div id="subtab1-content" class="sub-tab-content active"> 
+<div class="positions-header"  >
+        <div> 1. pozice </div>
+        <div>2. pozice</div>
+        <div>3. pozice</div>
+        <div>4. pozice</div>
+        <div>5. pozice</div>
+        <div>6. pozice</div>
+        <div>7. pozice</div>
+        <div>8. pozice</div>
+        <div>9. pozice</div>
+        <div> 10. pozice </div>
+   
+</div>
+
+        <div class="image-buttons-row">
+            <button data-target="Ram" style="width:135px;" data-group="col1" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col2" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col3" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col4" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col5" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col6" data-value="0">Prázdná pozice</button>
+             <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col8" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col9" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col10" data-value="0">Prázdná pozice</button>
+          
+        </div>
+        <div class="image-buttons-row">
+            <button data-target="skluzavka" style="width:135px;" data-group="col1" data-value="1">Skluzavka</button>
+            <button data-target="KonicitaH1" style="width:135px;" data-group="col2" data-value="1">Zobrazit obrázek 2</button>
+            <button data-target="image3" style="width:135px;" data-group="col3" data-value="1">Varianta 2</button>
+            <button data-target="Ram" style="width:135px;" data-group="col4" data-value="1">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col5" data-value="1">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col6" data-value="1">Prázdná pozice</button>
+             <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col8" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col9" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col10" data-value="0">Prázdná pozice</button>
+        </div>
+        <div class="image-buttons-row">
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <button data-target="image5" style="width:135px;" data-group="col3" data-value="2">Zobrazit obrázek 5</button>
+            <button data-target="Ram" style="width:135px;" data-group="col4" data-value="2">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col5" data-value="2">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col6" data-value="2">Prázdná pozice</button>
+             <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col8" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col9" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col10" data-value="0">Prázdná pozice</button>
+        </div>
+        
+    </div>
+
+    <div id="subtab2-content" class="sub-tab-content">
+      
+        <div class="positions-header"  >
+        <div> 11. pozice </div>
+        <div>12. pozice</div>
+        <div>13. pozice</div>
+        <div>14. pozice</div>
+        <div>15. pozice</div>
+        <div>16. pozice</div>
+        <div>17. pozice</div>
+        <div>18. pozice</div>
+        <div>19. pozice</div>
+        <div> 20. pozice </div>
+   
+</div>
+
+
+        <div id="subtab2-content" class="sub-tab-content active">       
+            </div>
+
+        <div class="image-buttons-row">
+            <button data-target="Ram" style="width:135px;" data-group="col11" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col12" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col13" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col14" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col15" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col16" data-value="0">Prázdná pozice</button>
+             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
+          
+        </div>
+        <div class="image-buttons-row">
+            <button data-target="image1" style="width:135px;" data-group="col11" data-value="1">Varianta 1</button>
+            <button data-target="KonicitaH1" style="width:135px;" data-group="col12" data-value="1">Zobrazit obrázek 2</button>
+            <button data-target="image3" style="width:135px;" data-group="col13" data-value="1">Varianta 2</button>
+            <button data-target="Ram" style="width:135px;" data-group="col14" data-value="1">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col15" data-value="1">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col16" data-value="1">Prázdná pozice</button>
+             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
+        </div>
+        <div class="image-buttons-row">
+            <button data-target="image4" style="width:135px;" data-group="col11" data-value="2">Zobrazit obrázek 4</button>
+            <div style="width:135px;"></div>
+            <button data-target="image5" style="width:135px;" data-group="col13" data-value="2">Zobrazit obrázek 5</button>
+            <button data-target="Ram" style="width:135px;" data-group="col14" data-value="2">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col15" data-value="2">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col16" data-value="2">Prázdná pozice</button>
+             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
+        </div>
+        
+    </div>     
+    </div>
+
+<!-- Tab 2 -->
+<div id="tab2-content" class="tab-content">
+    <div class="sloupce-container">
+        <div id="sloupce-tab2" class="sloupce">0 0 0</div>
+    </div>
+    <h2>Nějaká pila</h2>
+    <p>Obsah bude doplněn</p>
+</div>
+
+<!-- Tab 3 -->
+<div id="tab3-content" class="tab-content">
+    <div class="sloupce-container">
+        <div id="sloupce-tab3" class="sloupce">0 0 0 0 0 0</div>
+    </div>
+    <h2>Zase nějaká pila</h2>
+    <p>Obsah bude doplněn</p>
+</div>
+
+<script>
+// aktuální aktivní tab a sloupce
+let activeSloupceId = "sloupce-tab1";
+
+// TABS
+document.querySelectorAll('.tab-button').forEach(button=>{
+    button.addEventListener('click',()=>{
+        document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
+        button.classList.add('active');
+        document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
+        const targetTab = document.getElementById(button.dataset.target);
+        targetTab.classList.add('active');
+        resetImages();
+
+        // Změna hlavního obrázku podle tab
+        const ram = document.getElementById("Ram");
+        const ctr = document.getElementById("ctr");
+        if(button.dataset.target === "tab2-content"){
+            ram.style.opacity = "0";
+            ctr.style.opacity = "1";
+        } else {
+            ram.style.opacity = "1";
+            ctr.style.opacity = "0";
+        }
+ 
+        // Reset čísel pro nově aktivní tab
+        activeSloupceId = "sloupce-" + button.dataset.target.replace("-content","");
+        document.getElementById(activeSloupceId).textContent = "0 0 0 0 0 0";
+    });
+});
+
+// SUBTABS
+document.querySelectorAll('.sub-tab-button').forEach(button=>{
+    button.addEventListener('click',()=>{
+        document.querySelectorAll('.sub-tab-button').forEach(b=>b.classList.remove('active'));
+        button.classList.add('active');
+        const parent = button.closest('.tab-content');
+        parent.querySelectorAll('.sub-tab-content').forEach(c=>c.classList.remove('active'));
+        document.getElementById(button.dataset.target).classList.add('active');
+    });
+});
+
+// IMAGES + aktualizace čísel
+document.querySelectorAll('.image-buttons-row button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+        const col = btn.dataset.group;
+        const val = btn.dataset.value;
+
+        // Správa aktivních obrázků
+        document.querySelectorAll(`button[data-group="${col}"]`).forEach(b=>{
+            b.classList.remove('active');
+            document.getElementById(b.dataset.target).classList.remove('active');
+        });
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.target).classList.add('active');
+
+        // Aktualizace čísel pro aktivní tab
+        const sloupce = document.getElementById(activeSloupceId);
+        let values = sloupce.textContent.trim().split(" ");
+        const index = parseInt(col.replace("col","")) - 1;
+        values[index] = val;
+        sloupce.textContent = values.join(" ");
+    });
+});
+
+function resetImages(){
+    document.querySelectorAll('.image-container img:not(#Ram):not(#ctr)').forEach(img=>img.classList.remove('active'));
+    document.querySelectorAll('.image-buttons-row button').forEach(btn=>btn.classList.remove('active'));
+}
+
+// PDF = otevře tisk
+document.getElementById("printPdf").addEventListener("click", () => {
+    window.print();
+});
+</script>
+
+</body>
+</html>
