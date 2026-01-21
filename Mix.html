@@ -33,29 +33,16 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
 .sloupce-container { text-align: center; font-size: 24px; margin-bottom: 20px; }
 .sloupce { margin-top: 15px; }
 
-
 /* Text pro pozice */
 .positions-header {
-    
     display: flex;
     gap: 10px;
     margin-top: 10px;
     margin-bottom: 5px;
-    /* min-width: 130px; */
 }
 
 .positions-header div {
-    /* width: 133px;
-    padding: 6px 0;
-    text-align: center;
-    font-weight: bold;
-    background: #e9ecef;
-    border-radius: 2px;
-    border: 1px solid #ccc;
-    font-size: 14px; */
-
-    /* min-width: 125px; */
-     width: 125px; /* STEJNÁ ŠÍŘKA JAKO TLAČÍTKA */
+    width: 125px;
     padding: 4px;
     border-radius: 4px;
     text-align: center;
@@ -64,13 +51,7 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
     color: #000000;
     cursor: pointer;
     font-size: 14px;
-    
-
 }
-
-
-
-
 
 /* Obsah tabů */
 .tab-content { display: none; padding: 20px; background:#fff; border-radius:10px; margin-top:20px; }
@@ -94,7 +75,7 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
 .image-container {
     position: absolute;
     width: 1900px;
-    top: 490px;
+    top: 690px;
     left: 50%;
     transform: translateX(-50%);
     height: auto;
@@ -119,9 +100,7 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
     gap: 10px;
     margin-top: 15px;
 }
-/* Tady nastavím jak vypadají tlačítka a text v nich */
 .image-buttons-row button {
-    /* min-width: 135px; */
     padding: 8px;
     border-radius: 8px;
     border: 1px solid #007bff;
@@ -166,171 +145,426 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
 
 <h1>Konfigurátor - 1000 H60/80 </h1>
 
-<!-- Plátno s obrázky, tady se vše musí vypsat a dole pak zavolat -->
+<!-- Plátno s obrázky -->
 <div class="image-container">
     <img id="Ram" src="Ram-Z.PNG" alt="Zakladni ram">
-    <!-- <img id="image1" src="Ram.png" alt="Obrázek 1"> -->
-     <img id="skluzavka" src="skluzavka.png" alt="Obrázek 1">
+    <img id="skluzavka" src="skluzavka.png" alt="Obrázek 1">
     <img id="KonicitaH1" src="KonicitaH1.PNG" alt="Obrázek 2">
-    <img id="image3" src="upinac3.PNG" alt="Obrázek 3">
-    <img id="image4" src="upinac4.PNG" alt="Obrázek 4">
-    <img id="image5" src="upinac5.PNG" alt="Obrázek 5">
+    <img id="KonicitaH2" src="KonicitaH2.PNG" alt="Obrázek 5">
+    <img id="KonicitaH3" src="KonicitaH3.PNG" alt="Obrázek 2">
+    <img id="KonicitaH4" src="KonicitaH4.PNG" alt="Obrázek 5">
+    <img id="KonicitaH5" src="KonicitaH5.PNG" alt="Obrázek 2">
+    <img id="Upínač1" src="Upínač1.PNG" alt="Obrázek 3">
+    <img id="Upínač2" src="Upínač2.PNG" alt="Obrázek 3">
+    <img id="Upínač3" src="Upínač3.PNG" alt="Obrázek 3">
+    <img id="Upínač4" src="Upínač4.PNG" alt="Obrázek 3">
+    <img id="Upínač5" src="Upínač5.PNG" alt="Obrázek 3">
+    <img id="Upínač6" src="Upínač6.PNG" alt="Obrázek 3">
+    <img id="Upínač7" src="Upínač7.PNG" alt="Obrázek 3">
+    <img id="Ruka1" src="Ruka1.PNG" alt="Obrázek 4">
+    <img id="Ruka2" src="Ruka2.PNG" alt="Obrázek 5">
+    <img id="Ruka3" src="Ruka3.PNG" alt="Obrázek 5">
+    <img id="Ruka4" src="Ruka4.PNG" alt="Obrázek 4">
+    <img id="Ruka5" src="Ruka5.PNG" alt="Obrázek 5">
+    <img id="Ruka6" src="Ruka6.PNG" alt="Obrázek 5">
+    <img id="Řetezak1" src="Řetezak1.PNG" alt="Obrázek 5">
+    <img id="Řetezak2" src="Řetezak2.PNG" alt="Obrázek 5">
+    <img id="Řetezak3" src="Řetezak3.PNG" alt="Obrázek 5">
+    <img id="Řetezak4" src="Řetezak4.PNG" alt="Obrázek 5">
+    <img id="Řetezak5" src="Řetezak5.PNG" alt="Obrázek 5">
+    <img id="Řetezak6" src="Řetezak6.PNG" alt="Obrázek 5">
+    <img id="Řetezak7" src="Řetezak7.PNG" alt="Obrázek 5">
+    <img id="Řetezak8" src="Řetezak8.PNG" alt="Obrázek 5">
+    <img id="Řetezak9" src="Řetezak9.PNG" alt="Obrázek 5">
+    <img id="Řetezak10" src="Řetezak10.PNG" alt="Obrázek 5">
+    <img id="Řetezak11" src="Řetezak11.PNG" alt="Obrázek 5">
+    <img id="Řetezak12" src="Řetezak12.PNG" alt="Obrázek 5">
+    <img id="Řetezak13" src="Řetezak13.PNG" alt="Obrázek 5">
+    <img id="Konicita1" src="Konicita1.PNG" alt="Obrázek 5">
+    <img id="Konicita2" src="Konicita2.PNG" alt="Obrázek 5">
+    <img id="Konicita3" src="Konicita3.PNG" alt="Obrázek 5">
+    <img id="Konicita4" src="Konicita4.PNG" alt="Obrázek 5">
+    <img id="Konicita5" src="Konicita5.PNG" alt="Obrázek 5">
+    <img id="Úhelník1" src="Úhelník1.PNG" alt="Obrázek 5">
+    <img id="Úhelník2" src="Úhelník2.PNG" alt="Obrázek 5">
+    <img id="Úhelník3" src="Úhelník3.PNG" alt="Obrázek 5">
+    <img id="Úhelník4" src="Úhelník4.PNG" alt="Obrázek 5">
+    <img id="Úhelník5" src="Úhelník5.PNG" alt="Obrázek 5">
+    <img id="Úhelník6" src="Úhelník6.PNG" alt="Obrázek 5">
+    <img id="Úhelník7" src="Úhelník7.PNG" alt="Obrázek 5">
+    <img id="Nakladac1" src="Nakladac1.PNG" alt="Obrázek 5">
+    <img id="Nakladac2" src="Nakladac2.PNG" alt="Obrázek 5">
+    <img id="Nakladac3" src="Nakladac3.PNG" alt="Obrázek 5">
+    <img id="Nakladac4" src="Nakladac4.PNG" alt="Obrázek 5">
+    <img id="Nakladac5" src="Nakladac5.PNG" alt="Obrázek 5">
+    <img id="Nakladac6" src="Nakladac6.PNG" alt="Obrázek 5">
+    <img id="Nakladac7" src="Nakladac7.PNG" alt="Obrázek 5">
+    <img id="Nakladac8" src="Nakladac8.PNG" alt="Obrázek 5">
+    <img id="Nakladac9" src="Nakladac9.PNG" alt="Obrázek 5">
+
     <img id="ctr" src="CTR800.png" alt="CTR800" style="opacity:0; position:absolute; top:0; left:0; width:100%; object-fit:cover;">
 </div>
 
 <!-- Hlavní taby -->
 <div class="tabs">
-    <button class="tab-button active" data-target="tab1-content">CTR 1000 H40</button>
+    <button class="tab-button active" data-target="tab1-content">CTR 1000 H60/80</button>
     <button class="tab-button" data-target="tab2-content">Další pila</button>
     <button class="tab-button" data-target="tab3-content">Další pila</button>
 </div>
 
 <!-- Tab 1 -->
 <div id="tab1-content" class="tab-content active">
-    <!-- pole s čísly pro tento tab -->
     <div class="sloupce-container">
         <div id="sloupce-tab1" class="sloupce">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</div>
     </div>
-
-<!-- Tab 2 -->
-<div id="tab2-content" class="tab-content active">
-    <!-- pole s čísly pro tento tab -->
-    <!-- <div class="sloupce-container">
-        <div id="sloupce-tab2" class="sloupce">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</div>
-    </div> -->
- <!-- počet podtabů a jejich názvy -->
+    <!-- Čtvrtý samostatný řádek označení -->
+<div class="sloupce-container">
+    <div id="sloupce-tab1-row4" class="sloupce">0 0 0 0 0 0 0 0 </div>
+</div>
+<div class="sloupce-container">
+    <div id="sloupce-tab1-row5" class="sloupce">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</div>
+</div>
     <div class="sub-tabs">
         <button class="sub-tab-button active" data-target="subtab1-content">Pozice 1-10</button>
         <button class="sub-tab-button" data-target="subtab2-content">Pozice 11-20</button>
+        <button class="sub-tab-button" data-target="subtab3-content">Nakladače a úhelníky</button>
     </div>
-  
-    
 
-
-
-
-
-<!-- Tady se určí počet sloupců a řádků a zároveň hodnota zobrazená pro kalkulace -->
-    <div id="subtab1-content" class="sub-tab-content active"> 
-<div class="positions-header"  >
-        <div> 1. pozice </div>
-        <div>2. pozice</div>
-        <div>3. pozice</div>
-        <div>4. pozice</div>
-        <div>5. pozice</div>
-        <div>6. pozice</div>
-        <div>7. pozice</div>
-        <div>8. pozice</div>
-        <div>9. pozice</div>
-        <div> 10. pozice </div>
-   
-</div>
-
+    <div id="subtab1-content" class="sub-tab-content active">
+        <div class="positions-header">
+            <div> 1. pozice </div>
+            <div>2. pozice</div>
+            <div>3. pozice</div>
+            <div>4. pozice</div>
+            <div>5. pozice</div>
+            <div>6. pozice</div>
+            <div>7. pozice</div>
+            <div>8. pozice</div>
+            <div>9. pozice</div>
+            <div> 10. pozice </div>
+            <div> 11. pozice </div>
+        </div>
         <div class="image-buttons-row">
+            
             <button data-target="Ram" style="width:135px;" data-group="col1" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col2" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col3" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col4" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col5" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col6" data-value="0">Prázdná pozice</button>
-             <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col8" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col9" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col10" data-value="0">Prázdná pozice</button>
-          
+            <button data-target="Ram" style="width:135px;" data-group="col11" data-value="0">Prázdná pozice</button>
         </div>
         <div class="image-buttons-row">
             <button data-target="skluzavka" style="width:135px;" data-group="col1" data-value="1">Skluzavka</button>
-            <button data-target="KonicitaH1" style="width:135px;" data-group="col2" data-value="1">Zobrazit obrázek 2</button>
-            <button data-target="image3" style="width:135px;" data-group="col3" data-value="1">Varianta 2</button>
-            <button data-target="Ram" style="width:135px;" data-group="col4" data-value="1">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col5" data-value="1">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col6" data-value="1">Prázdná pozice</button>
-             <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col8" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col9" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col10" data-value="0">Prázdná pozice</button>
+            <button data-target="KonicitaH1" style="width:135px;" data-group="col2" data-value="1">Konicita poháněná</button>
+            <button data-target="Upínač1" style="width:135px;" data-group="col3" data-value="1">Upínač</button>
+            <button data-target="Ruka1" style="width:135px;" data-group="col4" data-value="1">Ruka</button>
+            <button data-target="KonicitaH2" style="width:135px;" data-group="col5" data-value="1">Konicita poháněná</button>
+            <button data-target="Ruka2" style="width:135px;" data-group="col6" data-value="1">Ruka</button>
+            <button data-target="Upínač2" style="width:135px;" data-group="col7" data-value="1">Upínač</button>
+            <button data-target="Ruka3" style="width:135px;" data-group="col8" data-value="1">Ruka</button>
+            <button data-target="KonicitaH3" style="width:135px;" data-group="col9" data-value="1">Konicita poháněná</button>
+            <button data-target="Upínač3" style="width:135px;" data-group="col10" data-value="1">Upínač</button>
+            <button data-target="Ruka4" style="width:135px;" data-group="col11" data-value="1">Ruka</button>
         </div>
         <div class="image-buttons-row">
             <div style="width:135px;"></div>
+            <button data-target="Konicita1" style="width:135px;" data-group="col2" data-value="2">Konicita</button>
             <div style="width:135px;"></div>
-            <button data-target="image5" style="width:135px;" data-group="col3" data-value="2">Zobrazit obrázek 5</button>
-            <button data-target="Ram" style="width:135px;" data-group="col4" data-value="2">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col5" data-value="2">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col6" data-value="2">Prázdná pozice</button>
-             <button data-target="Ram" style="width:135px;" data-group="col7" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col8" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col9" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col10" data-value="0">Prázdná pozice</button>
+            <div style="width:135px;"></div>
+            <button data-target="Řetezak1" style="width:135px;" data-group="col5" data-value="2">Řetězák</button>
+            <button data-target="Řetezak2" style="width:135px;" data-group="col6" data-value="2">Řetězák</button>
+            <div style="width:135px;"></div>
+             <div style="width:135px;"></div>
+            <button data-target="Řetezak3" style="width:135px;" data-group="col9" data-value="2">Řetězák</button>
+            <div style="width:135px;"></div>    
+           <div style="width:135px;"></div>
         </div>
+
+<div class="image-buttons-row">
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <button data-target="Konicita2" style="width:135px;" data-group="col5" data-value="3">Konicita</button>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+             <div style="width:135px;"></div>
+              <button data-target="Konicita3" style="width:135px;" data-group="col9" data-value="3">Konicita</button>
+            <div style="width:135px;"></div>    
+           <div style="width:135px;"></div>
+        </div>
+
+
+<!-- MEZERA POD STANDARDNÍMI ŘÁDKY -->
+<div style="height:50px;"></div>
+
+<!-- NEZÁVISLÝ 4. ŘÁDEK
+<div class="image-buttons-row independent-row">
+    <button data-target="KonicitaH2">Doplňková volba A</button>
+    <button data-target="Upínač1">Doplňková volba B</button>
+    <button data-target="Ruka3">Doplňková volba C</button>
+</div>
+
+NEZÁVISLÝ 5. ŘÁDEK -->
+<!-- <div class="image-buttons-row independent-row2">
+    <button data-target="KonicitaH2">Doplňková volba A</button>
+    <button data-target="Upínač1">Doplňková volba B</button>
+    <button data-target="Ruka3">Doplňková volba C</button>
+</div> -->
+
+<!-- Nezávislý 4. řádek  FUNKČNÍ-->
+<!-- <div class="image-buttons-row independent-row" data-sloupce="sloupce-tab1-row4">
+    <button data-target="Nakladac1" style="width:135px;">Nakladač 1</button>
+    <button data-target="Nakladac2"style="width:135px;">Nakladač 2</button>
+    <button data-target="Nakladac3"style="width:135px;">Nakladač 3</button>
+</div> -->
+
+<!-- Můj pokus o čtvrtou skupinu v řadě -->
+        <!-- <div class="image-buttons-row" data-sloupce="sloupce-tab1-row4">
+            <button data-target="Ram" style="width:135px;" data-group="colx1" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx2" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx3" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx4" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx5" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx6" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx7" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx8" data-value="0">Prázdná pozice</button>
+          
+            
+        </div> -->
+        <!-- <div class="image-buttons-row"  data-sloupce="sloupce-tab1-row4">
+            <button data-target="Nakladac1" style="width:135px;" data-group="colx1" data-value="1">Nakladač</button>
+            <button data-target="Nakladac2" style="width:135px;" data-group="colx2" data-value="1">Nakladač</button>
+            <button data-target="Nakladac4" style="width:135px;" data-group="colx3" data-value="1">Nakladač</button>
+            <button data-target="Nakladac5" style="width:135px;" data-group="colx4" data-value="1">Nakladač</button>
+            <button data-target="Nakladac6" style="width:135px;" data-group="colx5" data-value="1">Nakladač</button>
+            <button data-target="Nakladac7" style="width:135px;" data-group="colx6" data-value="1">Nakladač</button>
+            <button data-target="Nakladac8" style="width:135px;" data-group="colx7" data-value="1">Nakladač</button>
+            <button data-target="Nakladac9" style="width:135px;" data-group="colx8" data-value="1">Nakladač</button>
+            
+          
+        </div> -->
+        <!-- <div class="image-buttons-row" data-sloupce="sloupce-tab1-row4">          
+             <div style="width:135px;"></div>
+            <button data-target="Nakladac3" style="width:135px;" data-group="colx2" data-value="2">Nakladač</button>
+            <div style="width:135px;"data-value="0"></div>
+            <div style="width:135px;"></div>
+
+        </div> -->
+            <!-- <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button>
+            <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button>
+            <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button>
+            <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button>
+            <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button>
+            <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button> -->
+          
+            
+            
+            
+            
         
+
+
+
+
+<!-- Čtvrtý řádek – první podřada -->
+<!-- <div class="image-buttons-row independent-row" data-sloupce="sloupce-tab1-row4">
+    <button data-target="Nakladac1" style="width:135px;" data-group="row4">Nakladač 1</button>
+    <button data-target="Nakladac2" style="width:135px;" data-group="row4">Nakladač 2</button>
+    <button data-target="Nakladac3" style="width:135px;" data-group="row4">Nakladač 3</button>
+</div> -->
+
+<!-- Čtvrtý řádek – druhá podřada -->
+<!-- <div class="image-buttons-row independent-row" data-sloupce="sloupce-tab1-row5">
+    <button data-target="KonicitaH2" style="width:135px;" data-group="row5">Doplňková volba A</button>
+    <button data-target="Upínač1" style="width:135px;" data-group="row5">Doplňková volba B</button>
+    <button data-target="Ruka3" style="width:135px;" data-group="row5">Doplňková volba C</button>
+</div> -->
+
+
+
+<!-- <div class="image-buttons-row independent-row" data-sloupce="sloupce-tab1-row5">
+    <button data-target="KonicitaH2">Doplňková volba A</button>
+    <button data-target="Upínač1">Doplňková volba B</button>
+    <button data-target="Ruka3">Doplňková volba C</button>
+</div> -->
+
+
     </div>
 
     <div id="subtab2-content" class="sub-tab-content">
-      
-        <div class="positions-header"  >
-        <div> 11. pozice </div>
-        <div>12. pozice</div>
-        <div>13. pozice</div>
-        <div>14. pozice</div>
-        <div>15. pozice</div>
-        <div>16. pozice</div>
-        <div>17. pozice</div>
-        <div>18. pozice</div>
-        <div>19. pozice</div>
-        <div> 20. pozice </div>
-   
-</div>
-
-
-        <div id="subtab2-content" class="sub-tab-content active">       
-            </div>
-
+        <div class="positions-header">
+          
+            <div>12. pozice</div>
+            <div>13. pozice</div>
+            <div>14. pozice</div>
+            <div>15. pozice</div>
+            <div>16. pozice</div>
+            <div>17. pozice</div>
+            <div>18. pozice</div>
+            <div>19. pozice</div>
+            <div> 20. pozice </div>
+            <div> 21. pozice </div>
+            <div> 22. pozice </div>
+            <div> 23. pozice </div>
+        </div>
         <div class="image-buttons-row">
-            <button data-target="Ram" style="width:135px;" data-group="col11" data-value="0">Prázdná pozice</button>
+            
             <button data-target="Ram" style="width:135px;" data-group="col12" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col13" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col14" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col15" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col16" data-value="0">Prázdná pozice</button>
-             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
-          
+            <button data-target="Ram" style="width:135px;" data-group="col21" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col22" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="col23" data-value="0">Prázdná pozice</button>
         </div>
         <div class="image-buttons-row">
-            <button data-target="image1" style="width:135px;" data-group="col11" data-value="1">Varianta 1</button>
-            <button data-target="KonicitaH1" style="width:135px;" data-group="col12" data-value="1">Zobrazit obrázek 2</button>
-            <button data-target="image3" style="width:135px;" data-group="col13" data-value="1">Varianta 2</button>
-            <button data-target="Ram" style="width:135px;" data-group="col14" data-value="1">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col15" data-value="1">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col16" data-value="1">Prázdná pozice</button>
-             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
+            
+            <button data-target="Upínač4" style="width:135px;" data-group="col12" data-value="1">Upínač</button>
+            <button data-target="Řetezak5" style="width:135px;" data-group="col13" data-value="1">Řetězák</button>
+            <button data-target="Upínač5" style="width:135px;" data-group="col14" data-value="1">Upínač</button>
+            <button data-target="Ruka5" style="width:135px;" data-group="col15" data-value="1">Ruka</button>
+            <button data-target="Konicita4" style="width:135px;" data-group="col16" data-value="1">Konicita</button>
+            <button data-target="Řetezak8" style="width:135px;" data-group="col17" data-value="1">Řetězák</button>
+            <button data-target="Upínač6" style="width:135px;" data-group="col18" data-value="1">Upínač</button>
+            <button data-target="Řetezak9" style="width:135px;" data-group="col19" data-value="1">Řetězák</button>
+            <button data-target="Upínač7" style="width:135px;" data-group="col20" data-value="1">Upínač</button>
+            <button data-target="Ruka6" style="width:135px;" data-group="col21" data-value="1">Ruka</button>
+            <button data-target="KonicitaH5" style="width:135px;" data-group="col22" data-value="1">Konicita poháněná</button>
+               <button data-target="Řetezak13" style="width:135px;" data-group="col23" data-value="1">Řetězák</button>
         </div>
         <div class="image-buttons-row">
-            <button data-target="image4" style="width:135px;" data-group="col11" data-value="2">Zobrazit obrázek 4</button>
+            
+            
+            <button data-target="Řetezak4" style="width:135px;" data-group="col12" data-value="2">Řetězák</button>
+            <button data-target="Řetezak6" style="width:135px;" data-group="col13" data-value="2">Řetězák</button>
             <div style="width:135px;"></div>
-            <button data-target="image5" style="width:135px;" data-group="col13" data-value="2">Zobrazit obrázek 5</button>
-            <button data-target="Ram" style="width:135px;" data-group="col14" data-value="2">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col15" data-value="2">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col16" data-value="2">Prázdná pozice</button>
-             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
-            <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
+            <div style="width:135px;"></div>
+            <button data-target="Řetezak7" style="width:135px;" data-group="col16" data-value="2">Řetězák</button>
+           <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <button data-target="Řetezak10" style="width:135px;" data-group="col19" data-value="2">Řetězák</button>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <button data-target="Konicita5" style="width:135px;" data-group="col22" data-value="2">Konicita</button>
+            
         </div>
-        
-    </div>     
+
+<div class="image-buttons-row">
+            
+            
+           <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+           <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+           <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+            <div style="width:135px;"></div>
+          
+            <div style="width:135px;"></div>
+            <button data-target="Řetezak12" style="width:135px;" data-group="col22" data-value="3">Řetězák</button>
+            
+        </div>
+
+
+
+
+        <!-- MEZERA POD STANDARDNÍMI ŘÁDKY -->
+<div style="height:50px;"></div>
+
+
     </div>
+
+
+<div id="subtab3-content" class="sub-tab-content">
+        <div class="positions-header">
+            <div>3. pozice </div>
+            <div>5. pozice</div>
+            <div>7. pozice</div>
+            <div>9. pozice</div>
+            <div>12. pozice</div>
+            <div>14. pozice</div>
+            <div>18. pozice</div>
+            <div>20. pozice</div>
+     
+        </div>
+         <div class="image-buttons-row" data-sloupce="sloupce-tab1-row4">
+            <button data-target="Ram" style="width:135px;" data-group="colx1" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx2" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx3" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx4" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx5" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx6" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx7" data-value="0">Prázdná pozice</button>
+            <button data-target="Ram" style="width:135px;" data-group="colx8" data-value="0">Prázdná pozice</button>
+    
+        </div>
+<div class="image-buttons-row"  data-sloupce="sloupce-tab1-row4">
+            <button data-target="Nakladac1" style="width:135px;" data-group="colx1" data-value="1">Nakladač</button>
+            <button data-target="Nakladac2" style="width:135px;" data-group="colx2" data-value="1">Nakladač</button>
+            <button data-target="Nakladac4" style="width:135px;" data-group="colx3" data-value="1">Nakladač</button>
+            <button data-target="Nakladac5" style="width:135px;" data-group="colx4" data-value="1">Nakladač</button>
+            <button data-target="Nakladac6" style="width:135px;" data-group="colx5" data-value="1">Nakladač</button>
+            <button data-target="Nakladac7" style="width:135px;" data-group="colx6" data-value="1">Nakladač</button>
+            <button data-target="Nakladac8" style="width:135px;" data-group="colx7" data-value="1">Nakladač</button>
+            <button data-target="Nakladac9" style="width:135px;" data-group="colx8" data-value="1">Nakladač</button>
+       </div> 
+
+        
+
+
+
+
+       
+<div class="image-buttons-row"  data-sloupce="sloupce-tab1-row4">
+     <div style="width:135px;"></div>
+            <button data-target="Nakladac3" style="width:135px;" data-group="colx2" data-value="2">Nakladač</button>
+                  </div>
+
+        <!-- MEZERA POD STANDARDNÍMI ŘÁDKY -->
+<div style="height:30px;"></div>
+
+<div class="image-buttons-row independent-row" data-sloupce="sloupce-tab1-row5">
+    <button data-target="Úhelník1"style="width:135px;" >Úhelník</button>
+     <button data-target="Úhelník2"style="width:135px;">Úhelník</button>
+      <button data-target="Úhelník3"style="width:135px;">Úhelník</button>
+      <div style="width:135px;"></div>
+       <button data-target="Úhelník4"style="width:135px;">Úhelník</button>
+        <button data-target="Úhelník5"style="width:135px;">Úhelník</button>
+         <button data-target="Úhelník6"style="width:135px;">Úhelník</button>
+     <button data-target="Úhelník7"style="width:135px;">Úhelník</button>
+    
+</div>
+
+       
+
+
+        <!-- MEZERA POD STANDARDNÍMI ŘÁDKY -->
+<div style="height:20px;"></div>
+
+
+    </div>
+
+
+
+</div>
 
 <!-- Tab 2 -->
 <div id="tab2-content" class="tab-content">
     <div class="sloupce-container">
-        <div id="sloupce-tab2" class="sloupce">0 0 0</div>
+        <div id="sloupce-tab2" class="sloupce">0 0 0 0 0 0 0 0 0 0 </div>
     </div>
     <h2>Nějaká pila</h2>
     <p>Obsah bude doplněn</p>
@@ -346,33 +580,96 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
 </div>
 
 <script>
-// aktuální aktivní tab a sloupce
 let activeSloupceId = "sloupce-tab1";
+
+
+document.querySelectorAll('.image-buttons-row button[data-group^="colx"]').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const sloupceId = btn.closest('.image-buttons-row').dataset.sloupce;
+        const sloupceDiv = document.getElementById(sloupceId);
+
+        // toggle aktivity tlačítka a obrázku
+        const img = document.getElementById(btn.dataset.target);
+        if(img) img.classList.add('active');
+
+        // Odznačí ostatní tlačítka ve stejné skupině napříč všemi řádky
+        document.querySelectorAll(`.image-buttons-row[data-sloupce="${sloupceId}"] button[data-group="${btn.dataset.group}"]`)
+            .forEach(b => {
+                if(b!==btn) {
+                    b.classList.remove('active');
+                    const imgB = document.getElementById(b.dataset.target);
+                    if(imgB) imgB.classList.remove('active');
+                }
+            });
+
+        btn.classList.add('active');
+
+        // Přepočet čísel pro celý řádek
+      //  if(sloupceDiv){
+       //     const allButtons = Array.from(document.querySelectorAll(`.image-buttons-row[data-sloupce="${sloupceId}"] button`));
+       //     const values = allButtons.map(b => b.classList.contains('active') ? b.dataset.value : "0");
+          //  sloupceDiv.textContent = values.join(" ");
+        //}
+
+if (sloupceDiv) {
+    // zjisti, kolik má mít řádek pozic (podle počtu čísel)
+    let values = sloupceDiv.textContent.trim().split(" ");
+
+    // vynuluj
+    values = values.map(() => "0");
+
+    // projdi VŠECHNA colx tlačítka patřící k tomuto řádku
+    document
+        .querySelectorAll(`.image-buttons-row[data-sloupce="${sloupceId}"] button[data-group^="colx"]`)
+        .forEach(b => {
+            if (b.classList.contains("active")) {
+                const index = parseInt(b.dataset.group.replace("colx", "")) - 1;
+                values[index] = b.dataset.value;
+            }
+        });
+
+    sloupceDiv.textContent = values.join(" ");
+}
+
+
+
+
+    });
+});
+
+
+
+
+
+
+
+
+
+
 
 // TABS
 document.querySelectorAll('.tab-button').forEach(button=>{
     button.addEventListener('click',()=>{
         document.querySelectorAll('.tab-button').forEach(b=>b.classList.remove('active'));
         button.classList.add('active');
+
         document.querySelectorAll('.tab-content').forEach(c=>c.classList.remove('active'));
         const targetTab = document.getElementById(button.dataset.target);
         targetTab.classList.add('active');
+
         resetImages();
 
-        // Změna hlavního obrázku podle tab
         const ram = document.getElementById("Ram");
         const ctr = document.getElementById("ctr");
-        if(button.dataset.target === "tab2-content"){
+        if(button.dataset.target === "tab2-content" || button.dataset.target === "tab3-content"){
             ram.style.opacity = "0";
             ctr.style.opacity = "1";
         } else {
             ram.style.opacity = "1";
             ctr.style.opacity = "0";
         }
- 
-        // Reset čísel pro nově aktivní tab
+
         activeSloupceId = "sloupce-" + button.dataset.target.replace("-content","");
-        document.getElementById(activeSloupceId).textContent = "0 0 0 0 0 0";
     });
 });
 
@@ -390,29 +687,59 @@ document.querySelectorAll('.sub-tab-button').forEach(button=>{
 // IMAGES + aktualizace čísel
 document.querySelectorAll('.image-buttons-row button').forEach(btn=>{
     btn.addEventListener('click',()=>{
+
+const isIndependent = btn.closest('.independent-row');
+
+if(isIndependent){
+    btn.classList.toggle('active');
+    const img = document.getElementById(btn.dataset.target);
+    if(img) img.classList.toggle('active');
+
+    // aktualizace vlastního sled čísel pro čtvrtý řádek
+    const sloupceId = isIndependent.dataset.sloupce;
+    const sloupceDiv = document.getElementById(sloupceId);
+    if(sloupceDiv){
+        let values = Array.from(isIndependent.children).map(b => b.classList.contains('active') ? "1" : "0");
+        sloupceDiv.textContent = values.join(" ");
+    }
+
+    return;
+}
+
+
         const col = btn.dataset.group;
         const val = btn.dataset.value;
 
-        // Správa aktivních obrázků
-        document.querySelectorAll(`button[data-group="${col}"]`).forEach(b=>{
+        const activeTab = document.querySelector('.tab-content.active');
+        activeTab.querySelectorAll(`button[data-group="${col}"]`).forEach(b=>{
             b.classList.remove('active');
             document.getElementById(b.dataset.target).classList.remove('active');
         });
+
         btn.classList.add('active');
         document.getElementById(btn.dataset.target).classList.add('active');
 
-        // Aktualizace čísel pro aktivní tab
         const sloupce = document.getElementById(activeSloupceId);
-        let values = sloupce.textContent.trim().split(" ");
-        const index = parseInt(col.replace("col","")) - 1;
-        values[index] = val;
-        sloupce.textContent = values.join(" ");
+        if(sloupce){
+            let values = sloupce.textContent.trim().split(" ");
+            const index = parseInt(col.replace("col","")) - 1;
+            values[index] = val;
+            sloupce.textContent = values.join(" ");
+        }
     });
 });
 
+
+
+
+
+
 function resetImages(){
-    document.querySelectorAll('.image-container img:not(#Ram):not(#ctr)').forEach(img=>img.classList.remove('active'));
-    document.querySelectorAll('.image-buttons-row button').forEach(btn=>btn.classList.remove('active'));
+    const activeTab = document.querySelector('.tab-content.active');
+    if(activeTab){
+        activeTab.querySelectorAll('.image-buttons-row button').forEach(btn => btn.classList.remove('active'));
+    }
+    document.querySelectorAll('.image-container img:not(#Ram):not(#ctr)').forEach(img => img.classList.remove('active'));
 }
 
 // PDF = otevře tisk
