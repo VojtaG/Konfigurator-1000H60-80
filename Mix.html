@@ -207,6 +207,7 @@ h1 { text-align: center; margin-top: 20px; color: #0056b3; }
 
 <!-- Hlavní taby -->
 <div class="tabs">
+    
     <button class="tab-button active" data-target="tab1-content">CTR 1000 H60/80</button>
     <button class="tab-button" data-target="tab2-content">Další pila</button>
     <button class="tab-button" data-target="tab3-content">Další pila</button>
@@ -437,7 +438,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <button data-target="Konicita4" style="width:135px;" data-group="col16" data-value="1">Konicita</button>
             <button data-target="Řetezak8" style="width:135px;" data-group="col17" data-value="1">Řetězák</button>
             <button data-target="Upínač6" style="width:135px;" data-group="col18" data-value="1">Upínač</button>
-            <button data-target="Řetezak9" style="width:135px;" data-group="col19" data-value="1">Řetězák</button>
+            <button data-target="Řetezak10" style="width:135px;" data-group="col19" data-value="1">Řetězák</button>
             <button data-target="Upínač7" style="width:135px;" data-group="col20" data-value="1">Upínač</button>
             <button data-target="Ruka6" style="width:135px;" data-group="col21" data-value="1">Ruka</button>
             <button data-target="KonicitaH5" style="width:135px;" data-group="col22" data-value="1">Konicita poháněná</button>
@@ -452,9 +453,10 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <div style="width:135px;"></div>
             <button data-target="Řetezak7" style="width:135px;" data-group="col16" data-value="2">Řetězák</button>
            <div style="width:135px;"></div>
+           
+            <button data-target="Řetezak9" style="width:135px;" data-group="col18" data-value="2">Řetězák</button>
             <div style="width:135px;"></div>
-            <button data-target="Řetezak10" style="width:135px;" data-group="col19" data-value="2">Řetězák</button>
-            <div style="width:135px;"></div>
+             <div style="width:135px;"></div>
             <div style="width:135px;"></div>
             <button data-target="Konicita5" style="width:135px;" data-group="col22" data-value="2">Konicita</button>
             
@@ -670,8 +672,16 @@ document.querySelectorAll('.tab-button').forEach(button=>{
         }
 
         activeSloupceId = "sloupce-" + button.dataset.target.replace("-content","");
+
+      // RESET VŠECH ČÍSEL V AKTIVNÍM TABU
+targetTab.querySelectorAll('.sloupce').forEach(sloupce => {
+    const count = sloupce.textContent.trim().split(" ").length;
+    sloupce.textContent = Array(count).fill("0").join(" ");
+});
+
     });
 });
+
 
 // SUBTABS
 document.querySelectorAll('.sub-tab-button').forEach(button=>{
@@ -745,6 +755,10 @@ function resetImages(){
 // PDF = otevře tisk
 document.getElementById("printPdf").addEventListener("click", () => {
     window.print();
+
+
+
+    
 });
 </script>
 
