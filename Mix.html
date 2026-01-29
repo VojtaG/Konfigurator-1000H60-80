@@ -14,7 +14,7 @@ body {
     color: #333;
 }
 h1 { text-align: center; margin-top: 20px; color: #0056b3; }
-h3 { text-align: center; margin-top: 20px; color: #0056b3; }
+h3 { text-align: left; margin-top: -70px; color: #0056b3; }
 /* Hlavní taby */
 .tabs { text-align: center; margin: 20px 0; }
 .tabs button {
@@ -32,6 +32,16 @@ h3 { text-align: center; margin-top: 20px; color: #0056b3; }
 /* Řádky čísel uvnitř tab-content */
 .sloupce-container { text-align: center; font-size: 24px; margin-bottom: 20px; }
 .sloupce { margin-top: 15px; }
+
+/*Mezery mezi pozice */
+.position-spacer {
+    width: 20px;
+    background: transparent !important;
+    border: none !important;
+    cursor: default;
+    pointer-events: none;
+}
+
 
 /* Text pro pozice */
 .positions-header {
@@ -136,6 +146,38 @@ h3 { text-align: center; margin-top: 20px; color: #0056b3; }
     @page { size: landscape; margin: 10mm; }
     body { zoom: 90%; }
 }
+
+
+@media (max-width: 768px) {
+
+    /* 1️⃣ Nadpis */
+    .tab-title {
+        text-align: center;
+        transform: none;
+        margin: 12px auto;
+        font-size: 18px;
+    }
+
+    /* 2️⃣ Kontejner sloupců */
+    .sloupce-container {
+        overflow-x: auto;
+        padding-bottom: 6px;
+    }
+
+    /* 3️⃣ Řádky s nulami */
+    .sloupce {
+        min-width: 520px;   /* aby se vešly všechny pozice */
+        font-size: 14px;
+    }
+
+}
+
+
+
+
+
+
+
 </style>
 </head>
 
@@ -218,17 +260,19 @@ h3 { text-align: center; margin-top: 20px; color: #0056b3; }
 <!-- Tab 1 -->
 
 <div id="tab1-content" class="tab-content active">
-    <h3>Konfigurátor - 1000 H60/80 </h3>
+    
     <div class="sloupce-container">
     <div id="sloupce-tab1-row5" class="sloupce">0 0 0 0 0 0 0 0 </div>
 </div>
     <!-- Čtvrtý samostatný řádek označení -->
 <div class="sloupce-container">
     <div id="sloupce-tab1-row4" class="sloupce">0 0 0 0 0 0 0 0 </div>
-</div>
     <div class="sloupce-container">
         <div id="sloupce-tab1" class="sloupce">0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0</div>
     </div>
+    <h3>Konfigurátor - 1000 H60/80 </h3> 
+</div>
+    
 
 
     <div class="sub-tabs">
@@ -414,6 +458,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <div>15. pozice</div>
             <div>16. pozice</div>
             <div>17. pozice</div>
+            <div class="position-spacer" style="width:95px" ></div>
             <div>18. pozice</div>
             <div>19. pozice</div>
             <div> 20. pozice </div>
@@ -421,7 +466,14 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <div> 22. pozice </div>
             <div> 23. pozice </div>
         </div>
+
+
+
+
+
+        
         <div class="image-buttons-row">
+            
             
             <button data-target="Ram" style="width:135px;" data-group="col12" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col13" data-value="0">Prázdná pozice</button>
@@ -429,6 +481,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <button data-target="Ram" style="width:135px;" data-group="col15" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col16" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
+            <div style="width:100px;"></div>
             <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
@@ -444,6 +497,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <button data-target="Ruka5" style="width:135px;" data-group="col15" data-value="1">Ruka</button>
             <button data-target="Konicita4" style="width:135px;" data-group="col16" data-value="1">Konicita</button>
             <button data-target="Řetezak8" style="width:135px;" data-group="col17" data-value="1">Řetězák</button>
+            <div style="width:100px;"></div>
             <button data-target="Upínač6" style="width:135px;" data-group="col18" data-value="1">Upínač</button>
             <button data-target="Řetezak10" style="width:135px;" data-group="col19" data-value="1">Řetězák</button>
             <button data-target="Upínač7" style="width:135px;" data-group="col20" data-value="1">Upínač</button>
@@ -460,7 +514,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <div style="width:135px;"></div>
             <button data-target="Řetezak7" style="width:135px;" data-group="col16" data-value="2">Řetězák</button>
            <div style="width:135px;"></div>
-           
+           <div style="width:100px;"></div>
             <button data-target="Řetezak9" style="width:135px;" data-group="col18" data-value="2">Řetězák</button>
             <div style="width:135px;"></div>
              <div style="width:135px;"></div>
@@ -478,7 +532,8 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <div style="width:135px;"></div>
            <div style="width:135px;"></div>
             <div style="width:135px;"></div>
-           <div style="width:135px;"></div>
+          <div style="width:100px;"></div>
+            <div style="width:135px;"></div>
             <div style="width:135px;"></div>
             <div style="width:135px;"></div>
           
