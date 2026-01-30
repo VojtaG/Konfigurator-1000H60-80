@@ -15,7 +15,7 @@ body {
 }
 h1 { text-align: center; margin-top: 20px; color: #0056b3; }
 h3 { text-align: left; margin-top: -70px; color: #0056b3; }
-/* Hlavní taby */
+/* Hlavní taby */ 
 .tabs { text-align: center; margin: 20px 0; }
 .tabs button {
     padding: 12px 25px;
@@ -40,6 +40,18 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
     border: none !important;
     cursor: default;
     pointer-events: none;
+}
+
+.image-buttons-row button,
+.image-buttons-row div {
+    width: 135px;       /* jednotná šířka */
+    height: 45px;       /* jednotná výška */
+    padding: 0;         /* padding nulový, výška fixní */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 14px;
 }
 
 
@@ -84,7 +96,7 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
 /* Plátno pro obrázky */
 .image-container {
     position: absolute;
-    width: 1900px;
+    width: 1200px;
     top: 690px;
     left: 50%;
     transform: translateX(-50%);
@@ -346,31 +358,31 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
             <button data-target="Ruka4" style="width:135px;" data-group="col11" data-value="1">Ruka</button>
         </div>
         <div class="image-buttons-row">
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
             <button data-target="Konicita1" style="width:135px;" data-group="col2" data-value="2">Konicita</button>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
             <button data-target="Řetezak1" style="width:135px;" data-group="col5" data-value="2">Řetězák</button>
             <button data-target="Řetezak2" style="width:135px;" data-group="col6" data-value="2">Řetězák</button>
-            <div style="width:135px;"></div>
-             <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
+             <button class="position-spacer" disabled></button>
             <button data-target="Řetezak3" style="width:135px;" data-group="col9" data-value="2">Řetězák</button>
-            <div style="width:135px;"></div>    
-           <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>    
+           <button class="position-spacer" disabled></button>
         </div>
 
 <div class="image-buttons-row">
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
             <button data-target="Konicita2" style="width:135px;" data-group="col5" data-value="3">Konicita</button>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-             <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+             <button class="position-spacer" disabled></button>
               <button data-target="Konicita3" style="width:135px;" data-group="col9" data-value="3">Konicita</button>
-            <div style="width:135px;"></div>    
-           <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>    
+           <button class="position-spacer" disabled></button>
         </div>
 
 
@@ -424,10 +436,10 @@ NEZÁVISLÝ 5. ŘÁDEK -->
           
         </div> -->
         <!-- <div class="image-buttons-row" data-sloupce="sloupce-tab1-row4">          
-             <div style="width:135px;"></div>
+             <button class="position-spacer" disabled></button>
             <button data-target="Nakladac3" style="width:135px;" data-group="colx2" data-value="2">Nakladač</button>
             <div style="width:135px;"data-value="0"></div>
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
 
         </div> -->
             <!-- <button style="width:135px; visibility:hidden;" data-group="colx3" data-value="0"></button>
@@ -480,7 +492,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <div>15. pozice</div>
             <div>16. pozice</div>
             <div>17. pozice</div>
-            <div class="position-spacer" style="width:95px" ></div>
+            <div class="position-spacer" style="width:20px" ></div>
             <div>18. pozice</div>
             <div>19. pozice</div>
             <div> 20. pozice </div>
@@ -503,7 +515,8 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <button data-target="Ram" style="width:135px;" data-group="col15" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col16" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col17" data-value="0">Prázdná pozice</button>
-            <div style="width:100px;"></div>
+            <button class="position-spacer" disabled style="width:30px;"></button>
+
             <button data-target="Ram" style="width:135px;" data-group="col18" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col19" data-value="0">Prázdná pozice</button>
             <button data-target="Ram" style="width:135px;" data-group="col20" data-value="0">Prázdná pozice</button>
@@ -519,7 +532,8 @@ NEZÁVISLÝ 5. ŘÁDEK -->
             <button data-target="Ruka5" style="width:135px;" data-group="col15" data-value="1">Ruka</button>
             <button data-target="Konicita4" style="width:135px;" data-group="col16" data-value="1">Konicita</button>
             <button data-target="Řetezak8" style="width:135px;" data-group="col17" data-value="1">Řetězák</button>
-            <div style="width:100px;"></div>
+            <button class="position-spacer" disabled style="width:30px;"></button>
+
             <button data-target="Upínač6" style="width:135px;" data-group="col18" data-value="1">Upínač</button>
             <button data-target="Řetezak10" style="width:135px;" data-group="col19" data-value="1">Řetězák</button>
             <button data-target="Upínač7" style="width:135px;" data-group="col20" data-value="1">Upínač</button>
@@ -528,19 +542,19 @@ NEZÁVISLÝ 5. ŘÁDEK -->
                <button data-target="Řetezak13" style="width:135px;" data-group="col23" data-value="1">Řetězák</button>
         </div>
         <div class="image-buttons-row">
-            
-            
+                      
             <button data-target="Řetezak4" style="width:135px;" data-group="col12" data-value="2">Řetězák</button>
             <button data-target="Řetezak6" style="width:135px;" data-group="col13" data-value="2">Řetězák</button>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
             <button data-target="Řetezak7" style="width:135px;" data-group="col16" data-value="2">Řetězák</button>
-           <div style="width:135px;"></div>
-           <div style="width:100px;"></div>
+           <button class="position-spacer" disabled></button>
+           <button class="position-spacer" disabled style="width:30px;"></button>
+
             <button data-target="Řetezak9" style="width:135px;" data-group="col18" data-value="2">Řetězák</button>
-            <div style="width:135px;"></div>
-             <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
+             <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
             <button data-target="Konicita5" style="width:135px;" data-group="col22" data-value="2">Konicita</button>
             
         </div>
@@ -548,18 +562,19 @@ NEZÁVISLÝ 5. ŘÁDEK -->
 <div class="image-buttons-row">
             
             
-           <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-           <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-          <div style="width:100px;"></div>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
-            <div style="width:135px;"></div>
+           <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+           <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+          <button class="position-spacer" disabled style="width:30px;"></button>
+
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
+            <button class="position-spacer" disabled></button>
           
-            <div style="width:135px;"></div>
+            <button class="position-spacer" disabled></button>
             <button data-target="Řetezak12" style="width:135px;" data-group="col22" data-value="3">Řetězák</button>
             
         </div>
@@ -591,7 +606,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
     <button data-target="Úhelník1"style="width:135px;" >Úhelník</button>
      <button data-target="Úhelník2"style="width:135px;">Úhelník</button>
       <button data-target="Úhelník3"style="width:135px;">Úhelník</button>
-      <div style="width:135px;"></div>
+      <button class="position-spacer" disabled></button>
        <button data-target="Úhelník4"style="width:135px;">Úhelník</button>
         <button data-target="Úhelník5"style="width:135px;">Úhelník</button>
          <button data-target="Úhelník6"style="width:135px;">Úhelník</button>
@@ -630,7 +645,7 @@ NEZÁVISLÝ 5. ŘÁDEK -->
 
        
 <div class="image-buttons-row"  data-sloupce="sloupce-tab1-row4">
-     <div style="width:135px;"></div>
+     <button class="position-spacer" disabled></button>
             <button data-target="Nakladac3" style="width:135px;" data-group="colx2" data-value="2">Nakladač</button>
                   </div>
 
