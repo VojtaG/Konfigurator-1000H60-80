@@ -174,17 +174,15 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
     }
     /* === OBRÁZEK === */
   .image-container {
-    position: relative;
-    width: 100%;
-    max-width: 100%;
-
-    top: 0;
-    left: 0;
-
-    transform: translateX(-40px); /* ← TADY POSOUVÁŠ */
-
-    margin: 0 auto 20px;
+    position: absolute;
+    width: 1000px;
+    top: 690px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: auto;
     z-index: 0;
+      
+   
 }
 
 
@@ -876,6 +874,7 @@ document.getElementById("printPdf").addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
