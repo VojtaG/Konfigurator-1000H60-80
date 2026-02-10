@@ -220,6 +220,12 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
     }
 }
 
+/* Skrytí pomocných řádků čísel (aby nebyly vidět dvakrát) */
+#sloupce-tab1-row5,
+#sloupce-tab1-row4,
+#sloupce-tab1 {
+    display: none;
+}
 
 
 
@@ -316,6 +322,8 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
 
 
 <!-- Tab 1 -->
+<div id="sloupce-tab1-combined" style="text-align:center; font-size:24px; margin-bottom:20px;"></div>
+
 
 <div id="tab1-content" class="tab-content active">
     
@@ -892,53 +900,117 @@ document.getElementById("printPdf").addEventListener("click", () => {
 // =============================
 document.getElementById("applyCode").addEventListener("click", applyCodeFromInput);
 
+
 function applyCodeFromInput() {
 
     const input = document.getElementById("codeInput").value.trim();
     if (!input) return;
 
-    const values = input.split(/\s+/);
+    // ===== ROZDĚLENÍ NA 3 BLOKY PODLE POMLČKY =====
+    const parts = input.split("-").map(p => p.trim());
+
+    const row5Values = parts[0] ? parts[0].split(/\s+/) : [];
+    const row4Values = parts[1] ? parts[1].split(/\s+/) : [];
+    const mainValues = parts[2] ? parts[2].split(/\s+/) : [];
 
     const activeTab = document.querySelector('.tab-content.active');
 
-    values.forEach((val, index) => {
+    // =============================
+    // FUNKCE PRO AKTIVACI BUTTONŮ
+    // =============================
+    function activateButtons(values, prefix = "col") {
 
-        const colNumber = index + 1;
-        const groupName = "col" + colNumber;
+        values.forEach((val, index) => {
 
-        const btn = activeTab.querySelector(
-            `.image-buttons-row button[data-group="${groupName}"][data-value="${val}"]`
-        );
+            const groupName = prefix + (index + 1);
 
-        if (btn) {
+            const btn = activeTab.querySelector(
+                `.image-buttons-row button[data-group="${groupName}"][data-value="${val}"]`
+            );
 
-            // deaktivuj staré tlačítka + obrázky
-            activeTab.querySelectorAll(`button[data-group="${groupName}"]`).forEach(b=>{
-                b.classList.remove("active");
-                const img = document.getElementById(b.dataset.target);
-                if(img) img.classList.remove("active");
-            });
+            if (btn) {
 
-            // aktivuj nové
-            btn.classList.add("active");
-            const img = document.getElementById(btn.dataset.target);
-            if(img) img.classList.add("active");
-        }
-    });
+                activeTab.querySelectorAll(`button[data-group="${groupName}"]`).forEach(b => {
+                    b.classList.remove("active");
+                    const img = document.getElementById(b.dataset.target);
+                    if (img) img.classList.remove("active");
+                });
 
-    // přepiš čísla ve sloupcích
-    const sloupce = document.getElementById(activeSloupceId);
-    if(sloupce){
-        let current = sloupce.textContent.trim().split(" ");
-        for(let i=0;i<values.length;i++){
-            if(i < current.length){
-                current[i] = values[i];
+                btn.classList.add("active");
+                const img = document.getElementById(btn.dataset.target);
+                if (img) img.classList.add("active");
             }
-        }
-        sloupce.textContent = current.join(" ");
+        });
     }
+
+    // =============================
+    // FUNKCE PRO ZÁPIS DO ŘÁDKU
+    // =============================
+    function writeRow(id, values) {
+
+        const el = document.getElementById(id);
+        if (!el || values.length === 0) return;
+
+        let current = el.textContent.trim().split(" ");
+
+        for (let i = 0; i < current.length; i++) {
+            current[i] = values[i] ?? "0";
+        }
+
+        el.textContent = current.join(" ");
+    }
+
+    // ===== APLIKACE =====
+
+    // ROW5
+    writeRow("sloupce-tab1-row5", row5Values);
+
+    // ROW4
+    writeRow("sloupce-tab1-row4", row4Values);
+
+    // MAIN + aktivace tlačítek
+    activateButtons(mainValues, "col");
+    writeRow("sloupce-tab1", mainValues);
+
 }
 
+
+// =============================
+// KOMBINOVANÉ ZOBRAZENÍ S POMLČKOU (jen vizuální)
+// =============================
+
+function updateCombinedDisplay() {
+
+    const row5 = document.getElementById("sloupce-tab1-row5");
+    const row4 = document.getElementById("sloupce-tab1-row4");
+    const main = document.getElementById("sloupce-tab1");
+
+    const combined = document.getElementById("sloupce-tab1-combined");
+
+    if(!row5 || !row4 || !main || !combined) return;
+
+    combined.textContent =
+        row5.textContent.trim() +
+        "  -  " +
+        row4.textContent.trim() +
+        "  -  " +
+        main.textContent.trim();
+}
+
+
+// Sleduje změny ve sloupcích automaticky
+["sloupce-tab1-row5","sloupce-tab1-row4","sloupce-tab1"].forEach(id => {
+
+    const el = document.getElementById(id);
+    if(!el) return;
+
+    new MutationObserver(updateCombinedDisplay)
+        .observe(el, { childList:true, characterData:true, subtree:true });
+
+});
+
+// první vykreslení
+updateCombinedDisplay();
 
 
 
