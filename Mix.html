@@ -101,6 +101,9 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
 }
 .sub-tabs button.active { background-color: #218838; }
 
+
+
+
 /* Plátno pro obrázky */
 .image-container {
     position: absolute;
@@ -229,6 +232,16 @@ h3 { text-align: left; margin-top: -70px; color: #0056b3; }
 <body>
 
 <button id="printPdf">Uložit jako PDF</button>
+<div style="position:fixed; top:80px; right:15px; z-index:99999; background:white; padding:10px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2);">
+    <input id="codeInput" type="text" placeholder="Zadej kód např: 1 0 2 1 0 ..." 
+           style="width:280px; padding:8px; margin-bottom:5px;">
+    <br>
+    <button id="applyCode" style="padding:8px 15px; border:none; border-radius:6px; background:#007bff; color:white; cursor:pointer;">
+        Použít kód
+    </button>
+</div>
+
+
 
 <!-- <h1>Konfigurátor - 1000 H60/80 </h1> -->
 
@@ -872,6 +885,63 @@ document.getElementById("printPdf").addEventListener("click", () => {
 
     
 });
+
+
+// =============================
+// KÓD → AKTIVNÍ TLAČÍTKA + OBRÁZKY
+// =============================
+document.getElementById("applyCode").addEventListener("click", applyCodeFromInput);
+
+function applyCodeFromInput() {
+
+    const input = document.getElementById("codeInput").value.trim();
+    if (!input) return;
+
+    const values = input.split(/\s+/);
+
+    const activeTab = document.querySelector('.tab-content.active');
+
+    values.forEach((val, index) => {
+
+        const colNumber = index + 1;
+        const groupName = "col" + colNumber;
+
+        const btn = activeTab.querySelector(
+            `.image-buttons-row button[data-group="${groupName}"][data-value="${val}"]`
+        );
+
+        if (btn) {
+
+            // deaktivuj staré tlačítka + obrázky
+            activeTab.querySelectorAll(`button[data-group="${groupName}"]`).forEach(b=>{
+                b.classList.remove("active");
+                const img = document.getElementById(b.dataset.target);
+                if(img) img.classList.remove("active");
+            });
+
+            // aktivuj nové
+            btn.classList.add("active");
+            const img = document.getElementById(btn.dataset.target);
+            if(img) img.classList.add("active");
+        }
+    });
+
+    // přepiš čísla ve sloupcích
+    const sloupce = document.getElementById(activeSloupceId);
+    if(sloupce){
+        let current = sloupce.textContent.trim().split(" ");
+        for(let i=0;i<values.length;i++){
+            if(i < current.length){
+                current[i] = values[i];
+            }
+        }
+        sloupce.textContent = current.join(" ");
+    }
+}
+
+
+
+
 </script>
 
 </body>
