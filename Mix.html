@@ -906,7 +906,6 @@ function applyCodeFromInput() {
     const input = document.getElementById("codeInput").value.trim();
     if (!input) return;
 
-    // ===== ROZDĚLENÍ NA 3 BLOKY PODLE POMLČKY =====
     const parts = input.split("-").map(p => p.trim());
 
     const row5Values = parts[0] ? parts[0].split(/\s+/) : [];
@@ -916,9 +915,9 @@ function applyCodeFromInput() {
     const activeTab = document.querySelector('.tab-content.active');
 
     // =============================
-    // FUNKCE PRO AKTIVACI BUTTONŮ
+    // COL / COLX
     // =============================
-    function activateButtons(values, prefix = "col") {
+    function activateButtons(values, prefix) {
 
         values.forEach((val, index) => {
 
@@ -928,51 +927,107 @@ function applyCodeFromInput() {
                 `.image-buttons-row button[data-group="${groupName}"][data-value="${val}"]`
             );
 
-            if (btn) {
+            if (!btn) return;
 
-                activeTab.querySelectorAll(`button[data-group="${groupName}"]`).forEach(b => {
-                    b.classList.remove("active");
-                    const img = document.getElementById(b.dataset.target);
-                    if (img) img.classList.remove("active");
-                });
+            activeTab.querySelectorAll(`button[data-group="${groupName}"]`).forEach(b => {
+                b.classList.remove("active");
+                const img = document.getElementById(b.dataset.target);
+                if (img) img.classList.remove("active");
+            });
 
-                btn.classList.add("active");
-                const img = document.getElementById(btn.dataset.target);
-                if (img) img.classList.add("active");
-            }
+            btn.classList.add("active");
+
+            const img = document.getElementById(btn.dataset.target);
+            if (img) img.classList.add("active");
         });
     }
 
     // =============================
-    // FUNKCE PRO ZÁPIS DO ŘÁDKU
+    // ÚHELNÍKY (independent-row)
+    // =============================
+    function activateIndependent(values, rowSelector, sloupceId) {
+
+        const row = activeTab.querySelector(rowSelector);
+        if (!row) return;
+
+        const buttons = Array.from(row.querySelectorAll("button"));
+
+        // reset
+        buttons.forEach(btn => {
+            btn.classList.remove("active");
+            const img = document.getElementById(btn.dataset.target);
+            if (img) img.classList.remove("active");
+        });
+
+        // aktivace podle hodnot
+        values.forEach((val, index) => {
+
+            if (val === "1" && buttons[index]) {
+
+                const btn = buttons[index];
+                btn.classList.add("active");
+
+                const img = document.getElementById(btn.dataset.target);
+                if (img) img.classList.add("active");
+            }
+        });
+
+        // zápis do text řádku
+        const sloupce = document.getElementById(sloupceId);
+        if (sloupce) {
+            let base = sloupce.textContent.trim().split(" ");
+            base = base.map((_, i) => values[i] || "0");
+            sloupce.textContent = base.join(" ");
+        }
+    }
+
+    // =============================
+    // ZÁPIS DO TEXT ŘÁDKU
     // =============================
     function writeRow(id, values) {
 
         const el = document.getElementById(id);
-        if (!el || values.length === 0) return;
+        if (!el || !values.length) return;
 
-        let current = el.textContent.trim().split(" ");
+        let current = el.textContent.trim().split(/\s+/);
 
-        for (let i = 0; i < current.length; i++) {
-            current[i] = values[i] ?? "0";
-        }
+        values.forEach((v, i) => {
+            if (i < current.length) current[i] = v;
+        });
 
         el.textContent = current.join(" ");
     }
 
-    // ===== APLIKACE =====
+    // =============================
+    // RESET
+    // =============================
+    activeTab.querySelectorAll(".image-buttons-row button").forEach(b => {
+        b.classList.remove("active");
+        const img = document.getElementById(b.dataset.target);
+        if (img) img.classList.remove("active");
+    });
 
-    // ROW5
-    writeRow("sloupce-tab1-row5", row5Values);
+    // =============================
+    // APLIKACE
+    // =============================
 
-    // ROW4
+    // Úhelníky
+    activateIndependent(
+        row5Values,
+        '.independent-row[data-sloupce="sloupce-tab1-row5"]',
+        "sloupce-tab1-row5"
+    );
+
+    // Nakladače
+    activateButtons(row4Values, "colx");
     writeRow("sloupce-tab1-row4", row4Values);
 
-    // MAIN + aktivace tlačítek
+    // Hlavní pozice
     activateButtons(mainValues, "col");
     writeRow("sloupce-tab1", mainValues);
-
 }
+
+
 
 
 // =============================
