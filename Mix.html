@@ -256,7 +256,7 @@ h3 {
 
 <button id="printPdf"  data-i18n="btn_uloz">Uložit jako PDF</button>
 <div style="position:absolute; top:80px; right:15px; z-index:99999; background:white; padding:10px; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.2);">
-    <input id="codeInput" type="text" placeholder="Zadejte kód např: 1 0 2 1 0 ..." 
+    <input id="codeInput" type="text" data-i18n-placeholder="code" placeholder="Zadejte kód např: 1 0 2 1 0 ..." 
            style="width:280px; padding:8px; margin-bottom:5px;">
     <br>
     <button id="applyCode" style="padding:8px 15px; border:none; border-radius:6px; background:#007bff; color:white; cursor:pointer;" data-i18n="kod">
@@ -786,6 +786,7 @@ const translations = {
         poz23: "23. pozice",
         kod: "Použít kód",
         btn_uloz: "Uložit jako PDF",
+        code: "Zadejte kód např: 1 0 2 1 0 ...",
 
 
         // ... přidat všechny ostatní tlačítka, subtaby, nadpisy!!!!!!!!
@@ -829,6 +830,7 @@ const translations = {
         poz23: "23. pozice",
         kod: "Použít kód",
         btn_uloz: "Uložit jako PDF",
+         code: "Enter the code, e.g.: 1 0 2 1 0",
         // ... ostatní.......
     },
 
@@ -1253,6 +1255,7 @@ updateCombinedDisplay();
 
 </body>
 </html>
+
 
 
 
