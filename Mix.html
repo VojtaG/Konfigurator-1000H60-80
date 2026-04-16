@@ -23,6 +23,15 @@ h3 {
     margin-bottom: 0px;
     color: #0056b3;
 }
+h4 {
+    text-align: left;
+    margin-left: 0px;   /* TADY se ovládá vzdálenost */
+    margin-top: 1px;
+    font-size: 2px;
+    margin-bottom: 0px;
+    color: #f4f4f4;
+    
+}
 
 /* Hlavní taby */ 
 .tabs { text-align: center; margin: 20px 0; }
@@ -151,6 +160,20 @@ h3 {
     cursor: pointer;
     font-size: 14px;
 }
+
+/* === PRÁZDNÁ POZICE - jiná barva === */
+.image-buttons-row button[data-i18n="btn_praz"] {
+    background-color: #cccccc;
+    border: 1px solid #999;
+    color: #333;
+}
+
+/* aktivní (kliknuté) */
+.image-buttons-row button[data-i18n="btn_praz"].active {
+    background-color: #888888;
+}
+
+
 .image-buttons-row button.active { background: #0056b3; }
 
 .sub-tab-content { display: none; margin-top:10px; }
@@ -238,7 +261,46 @@ h3 {
 
 
 
+/* ===== POPUP a jeho pozice===== */
+.popup-overlay {
+    position: fixed;
+    top: 200px;
+    right: 20px;
+    width: auto;
+    height: auto;
+    background: transparent; /* už neblokuje stránku */
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    z-index: 999999;
 
+    pointer-events: none; /* ⚠️ KLÍČOVÉ */
+}
+
+.popup-box {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+    border: 2px solid #000203; /* rámeček */
+    pointer-events: auto; /* ⚠️ dovolí klikání uvnitř popupu */
+}
+
+.popup-box button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.popup-overlay.hidden {
+    display: none;
+}
 
 
 </style>
@@ -246,10 +308,25 @@ h3 {
 
 <body>
 
+<!-- POPUP -->
+<div id="startupPopup" class="popup-overlay hidden">
+    <div class="popup-box">
+        <h2>Vítejte v konfigurátoru CTR 1000 H60/80 LX</h2>
+        <p>
+        Konfigurátor je rozdělen na tři sekce: Nakladače a úhelníky, Pozice 1-11 a Pozice 12-23.<br>
+        Mezi jednotlivými sekcemi se lze přepínat pomocí kliknutí na ně.<br>
+        Při kliknutí na Úhelník dojde k jeho zobrazení na obrázku. Po opětovném kliknutí Úhelník zmizí.<br>
+        Ostatní příslušenství se vybere kliknutím na příslušné tlačítko a jeho odebrání se provede kliknutím na tlačítko Prázdná pozice.
+        </p>
+        <button onclick="closePopup()">Zavřít</button>
+    </div>
+</div>
+
+
 <div style="position:fixed; top:15px; left:15px; z-index:99999;">
     <button onclick="setLanguage('CZ')">CZ</button>
     <button onclick="setLanguage('EN')">EN</button>
-    <!-- <button onclick="setLanguage('DE')">DE</button> -->
+    <button onclick="setLanguage('DE')">DE</button>
 </div>
 
 
@@ -719,10 +796,10 @@ NEZÁVISLÝ 5. ŘÁDEK -->
 
 
     </div>
-
-
-
 </div>
+<h4 data-i18n="main_title" style="margin-bottom:10px; margin-top:380px; margin-left:0px">Vypracoval Ing. V.G.</h4> 
+
+
 
 <!-- Tab 2 -->
 <div id="tab2-content" class="tab-content">
@@ -745,6 +822,15 @@ NEZÁVISLÝ 5. ŘÁDEK -->
 <script>
 let activeSloupceId = "sloupce-tab1";
 
+// ===== POPUP =====
+function closePopup() {
+    document.getElementById("startupPopup").classList.add("hidden");
+}
+
+// zobrazí popup po načtení stránky
+window.addEventListener("load", () => {
+    document.getElementById("startupPopup").classList.remove("hidden");
+});
 
 const translations = {
     CZ: {
@@ -791,7 +877,8 @@ const translations = {
 
         // ... přidat všechny ostatní tlačítka, subtaby, nadpisy!!!!!!!!
     },
-     DE: {
+    
+DE: {
         main_title: "Konfigurator - CTR 1000 H60/80 LX",
         subtab1_title: "Position 1-11",
         subtab2_title: "Position 12-23",
@@ -833,7 +920,7 @@ const translations = {
          code: "Enter the code, e.g.: 1 0 2 1 0",
         // ... ostatní.......
     },
-
+    
     EN: {
         main_title: "Machine configurator - CTR 1000 H60/80 LX",
         subtab1_title: "Positions 1-11",
