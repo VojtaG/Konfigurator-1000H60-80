@@ -142,6 +142,9 @@ h4 {
     transition: opacity 0.3s ease;
 }
 .image-container img#Ram { opacity:1; z-index:1; }
+/* .image-container img#pozice1 { opacity:1; z-index:3; }
+.image-container img#pozice2 { opacity:1; z-index:3; }
+.image-container img#pozice3 { opacity:1; z-index:3; } */
 .image-container img.active { opacity:1; z-index:2; }
 
 /* Flex pro tlačítka */
@@ -401,6 +404,36 @@ h4 {
     <img id="Nakladac7" src="Nakladac7.png" alt="Obrázek 5">
     <img id="Nakladac8" src="Nakladac8.png" alt="Obrázek 5">
     <img id="Nakladac9" src="Nakladac9.png" alt="Obrázek 5">
+    <img id="pozice1" src="1.png">
+    <img id="pozice2" src="2.png">
+    <img id="pozice3" src="3.png">
+    <img id="pozice4" src="4.png">
+    <img id="pozice5" src="5.png">
+    <img id="pozice6" src="6.png">
+    <img id="pozice7" src="7.png">
+    <img id="pozice8" src="8.png">
+    <img id="pozice9" src="9.png">
+    <img id="pozice10" src="10.png">
+    <img id="pozice11" src="11.png">
+
+    <img id="pozice12" src="12.png">
+    <img id="pozice13" src="13.png">
+    <img id="pozice14" src="14.png">
+    <img id="pozice15" src="15.png">
+    <img id="pozice16" src="16.png">
+    <img id="pozice17" src="17.png">
+    <img id="pozice18" src="18.png">
+    <img id="pozice19" src="19.png">
+    <img id="pozice20" src="20.png">
+    <img id="pozice21" src="21.png">
+    <img id="pozice22" src="22.png">
+    <img id="pozice23" src="23.png">
+
+
+
+
+
+
 
     <img id="ctr" src="CTR800.png" alt="CTR800" style="opacity:0; position:absolute; top:0; left:0; width:100%; object-fit:cover;">
 </div>
@@ -1344,8 +1377,45 @@ function updateCombinedDisplay() {
 
 });
 
+
+
 // první vykreslení
 updateCombinedDisplay();
+
+
+// Funkce pro mazání pozic
+
+function updatePoziceImages() {
+
+    for (let i = 1; i <= 23; i++) {
+
+        const img = document.getElementById("pozice" + i);
+        if (!img) continue;
+
+        const group = "col" + i;
+
+        const activeBtn = document.querySelector(
+            `button[data-group="${group}"].active`
+        );
+
+        if (!activeBtn || activeBtn.dataset.value === "0") {
+            img.classList.add("active");
+        } else {
+            img.classList.remove("active");
+        }
+    }
+}
+
+
+/* spustit po kliknutí */
+document.querySelectorAll('button[data-group^="col"]').forEach(btn => {
+    btn.addEventListener("click", () => {
+        setTimeout(updatePoziceImages, 10);
+    });
+});
+
+/* po načtení */
+window.addEventListener("load", updatePoziceImages);
 
 
 
