@@ -322,8 +322,8 @@ h4 {
     padding: 20px;
     border-radius: 15px;
 
-    width: 380px;
-   height: 380px;
+    width: 380px; /* šířka okna*/
+   height: 435px; /* Výška okna*/
 
     box-sizing: border-box;
     border: 2px solid #000203;
@@ -334,19 +334,26 @@ h4 {
     pointer-events: auto;
 }
 
+/* Talčítko zavřít */
 .popup-box button {
-    margin-top: auto;   /* ← přibije tlačítko dolů */
-    
+    margin-top: auto;
     align-self: center;
 
-    padding: 10px 20px;
+    width: 95px;          /* pevná šířka */
+    height: 35px;          /* pevná výška */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    white-space: nowrap;   /* nezalomí text */
+
     border: none;
     background: #007bff;
     color: white;
     border-radius: 8px;
     cursor: pointer;
 }
-
 .popup-overlay.hidden {
     display: none;
 }
@@ -368,10 +375,7 @@ h4 {
 <div id="startupPopup" class="popup-overlay hidden">
     <div class="popup-box">
         <h2 data-i18n="Help_title">Vítejte v konfigurátoru CTR 1000 H60/80 LX</h2>
-        <div data-i18n="Help_info">Konfigurátor je rozdělen na tři sekce: Nakladače a úhelníky, Pozice 1-11 a Pozice 12-23.<br>
-        Mezi jednotlivými sekcemi se lze přepínat pomocí kliknutí na ně.<br>
-        Při kliknutí na Úhelník dojde k jeho zobrazení na obrázku. Po opětovném kliknutí Úhelník zmizí.<br>
-        Ostatní příslušenství se vybere kliknutím na příslušné tlačítko a jeho odebrání se provede kliknutím na tlačítko Prázdná pozice.</div>
+        <div data-i18n="Help_info">Konfigurátor je rozdělen na tři sekce: <strong>Nakladače a úhelníky, Pozice 1-11 a Pozice 12-23 </strong> .<br> Mezi jednotlivými sekcemi se lze přepínat pomocí kliknutí na ně. <br> Při kliknutí na Úhelník dojde k jeho zobrazení na obrázku. Po opětovném kliknutí Úhelník zmizí.<br>Ostatní příslušenství se vybere kliknutím na příslušné tlačítko a jeho odebrání se provede kliknutím na tlačítko <strong> Prázdná pozice </strong>. Pozice 1-17 představuje základní sekci, 18-23 prodlužovací sekci.  <br> V případě potíží nebo pro další informace volejte: +420 543 252 030</div>
         <button onclick="closePopup()" data-i18n="Close" >Zavřít</button>
     </div>
 </div>
@@ -924,7 +928,7 @@ const translations = {
        Close: "Zavřít",
         Help: "Nápověda",   
         Help_title: "Vítejte v konfigurátoru CTR 1000 H60/80 LX",
-        Help_info: "Konfigurátor je rozdělen na tři sekce: Nakladače a úhelníky, Pozice 1-11 a Pozice 12-23.<br>\ Mezi jednotlivými sekcemi se lze přepínat pomocí kliknutí na ně. <br>\ Při kliknutí na Úhelník dojde k jeho zobrazení na obrázku. Po opětovném kliknutí Úhelník zmizí.<br>\     Ostatní příslušenství se vybere kliknutím na příslušné tlačítko a jeho odebrání se provede kliknutím na tlačítko Prázdná pozice.",
+        Help_info: "Konfigurátor je rozdělen na tři sekce: <strong>Nakladače a úhelníky, Pozice 1-11 a Pozice 12-23 </strong> .<br>\ Mezi jednotlivými sekcemi se lze přepínat pomocí kliknutí na ně. <br>\ Při kliknutí na Úhelník dojde k jeho zobrazení na obrázku. Po opětovném kliknutí Úhelník zmizí.<br>\     Ostatní příslušenství se vybere kliknutím na příslušné tlačítko a jeho odebrání se provede kliknutím na tlačítko <strong> Prázdná pozice </strong>. Pozice 1-17 představuje základní sekci, 18-23 prodlužovací sekci. <br>\ V případě potíží nebo pro další informace volejte: +420 543 252 030. ",
         main_title: "Konfigurátor - CTR 1000 H60/80 LX",
         subtab1_title: "Pozice 1-11",
         subtab2_title: "Pozice 12-23",
@@ -973,7 +977,7 @@ DE: {
         Close: "Schließen",
         Help: "Hilfe",
         Help_title: "Willkommen im Konfigurator CTR 1000 H60/80 LX.",
-        Help_info: "Der Konfigurator ist in drei Bereiche unterteilt: Lader und Winkel, Position 1–11 und Position 12–23. Zwischen den Bereichen wechseln Sie per Klick.  <br>\  Klicken Sie auf einen Winkelanschlag, um ihn im Bild anzuzeigen; ein weiterer Klick blendet ihn aus. Anderes Zubehör wählen Sie mit der entsprechenden Schaltfläche und entfernen es mit der Schaltfläche Leere Position.  <br>\ Positionen 1–17 bilden die Grundsektion, 18–23 die Verlängerungssektion. ",
+        Help_info: "Der Konfigurator ist in drei Bereiche unterteilt: <strong> Lader und Winkel, Position 1–11 und Position 12–23 </strong>. Zwischen den Bereichen wechseln Sie per Klick.  <br>\  Klicken Sie auf einen Winkelanschlag, um ihn im Bild anzuzeigen; ein weiterer Klick blendet ihn aus. Anderes Zubehör wählen Sie mit der entsprechenden Schaltfläche und entfernen es mit der Schaltfläche <strong> Leere Position </strong>.  <br>\ Positionen 1–17 bilden die Grundsektion, 18–23 die Verlängerungssektion.  <br>\  Bei Fragen oder für weitere Informationen erreichen Sie uns unter: +420 543 252 030.",
         main_title: "Konfigurator - CTR 1000 H60/80 LX",
         subtab1_title: "Position 1-11",
         subtab2_title: "Position 12-23",
@@ -1019,8 +1023,8 @@ DE: {
     EN: {
         Close: "Close",
         Help: "Instructions",
-        Help_title: "VWelcome to the CTR 1000 H60/80 LX configurator. ",
-        Help_info: "The configurator is divided into three sections: Loaders and angles, Positions 1–11, and Positions 12–23. Switch sections by clicking. <br>\  Click an angle bar to show it on the image, click again to hide it. Select other accessories with the button and remove them with the Empty position button. <br>\ Positions 1–17 are the main section, 18–23 are the extending section. ",
+        Help_title: "Welcome to the CTR 1000 H60/80 LX configurator. ",
+        Help_info: "The configurator is divided into three sections: <strong> Loaders and angles, Positions 1–11, and Positions 12–23 </strong>. Switch sections by clicking. <br>\  Click an angle bar to show it on the image, click again to hide it. Select other accessories with the button and remove them with the <strong> Empty position </strong> button. <br>\ Positions 1–17 are the main section, 18–23 are the extending section. <br>\ If you have any questions or would like more information, please call: +420 543 252 030. ",
         main_title: "Machine configurator - CTR 1000 H60/80 LX",
         subtab1_title: "Positions 1-11",
         subtab2_title: "Positions 12-23",
