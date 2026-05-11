@@ -154,14 +154,16 @@ h4 {
 
 /* Plátno pro obrázky */
 .image-container {
-    Position: absolute;
+    position: absolute;
     width: 1400px;
+    max-width: 95vw;            /* ✅ důležité */
     top: 520px;
-    left: 58%;
+    left: 50%;                  /* ✅ srovnání na střed */
     transform: translateX(-50%);
     height: auto;
     z-index: -1;
 }
+
 .image-container img {
     Position: absolute;
     top:0;
@@ -244,33 +246,31 @@ h4 {
 
 
 @media (max-width: 768px) {
- body {
+
+    body {
         overflow-x: hidden;
     }
-    /* === OBRÁZEK === */
-  .image-container {
-    Position: relative;
-    width: 100%;
-    max-width: 100%;
 
-    top: 0;
-    left: 0;
-
-    transform: translateX(-40px); /* ← TADY POSOUVÁŠ */
-
-    margin: 0 auto 20px;
-    z-index: 0;
-}
-
+    /* === OBRÁZKY === */
+    .image-container {
+        position: relative;      /* ✅ KLÍČ */
+        width: 100%;
+        max-width: 100%;
+        top: 0;
+        left: 0;
+        transform: none;         /* ✅ odstraněn hack */
+        margin: 20px auto;
+        z-index: 0;
+    }
 
     .image-container img {
-        Position: relative;
+        position: absolute;      /* ⚠️ MUSÍ ZŮSTAT kvůli vrstvám */
         width: 100%;
         height: auto;
         object-fit: contain;
     }
 
-    /* === TABY A OBSAH === */
+    /* === TABS === */
     .tab-content {
         padding-top: 10px;
     }
@@ -282,12 +282,18 @@ h4 {
     }
 
     .image-buttons-row button {
-        width: calc(50% - 10px) !important;
+        width: calc(50% - 10px) !important; /* ✅ 2 sloupce */
+        max-width: none;
         font-size: 14px;
     }
 
-    /* === SKRYJ PRÁZDNÉ BLOKY === */
+    /* === SKRYJ MEZERY === */
     .image-buttons-row > div {
+        display: none;
+    }
+
+    /* === HLAVIČKY POZIC === */
+    .Positions-header {
         display: none;
     }
 }
